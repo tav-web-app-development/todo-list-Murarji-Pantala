@@ -1,87 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="icon" type="image/svg+xml" href="/vite.svg">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vite App</title>
-  <style>
-    .completed-task {
-      text-decoration: line-through;
-    }
-  </style>
-</head>
-<body>
-  <div id="app"></div>
-
-  <div>
-    <input type="text" placeholder="Search..." id="searchInput">
-    <label>
-      <input type="checkbox" id="hideCompleted" onchange="toggleCompletedTasks()">
-      Hide completed tasks
-    </label>
-  </div>
-
-  <table id="taskTable">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Due Date</th>
-      </tr>
-    </thead>
-    <tbody id="taskList">
-      <tr>
-        <td>
-          <span class="completed-task">Gym workout</span>
-        </td>
-        <td>2024-03-26</td>
-      </tr>
-      <tr>
-        <td> Grocery shopping</td>
-        <td>2024-04-01</td>
-      </tr>
-      <tr>
-        <td> car service </td>
-        <td>2024-05-19</td>
-      </tr>
-      <tr>
-        <td> doctor appointment </td>
-        <td>2024-04-01</td>
-      </tr>
-      <tr>
-        <td> Read chapter 5 </td>
-        <td>2024-04-04</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <script>
-    function toggleCompletedTasks() {
-      var hideCompletedCheckbox = document.getElementById("hideCompleted");
-      var completedTasks = document.querySelectorAll(".completed-task");
-
-      completedTasks.forEach(function(task) {
-        if (hideCompletedCheckbox.checked) {
-          task.parentNode.parentNode.style.display = "none";
-        } else {
-          task.parentNode.parentNode.style.display = "table-row";
-        }
-      });
-    }
-
-    document.getElementById("searchInput").addEventListener("input", function() {
-      var searchText = this.value.toLowerCase();
-      var taskRows = document.querySelectorAll("#taskList tr");
-
-      taskRows.forEach(function(row) {
-        var taskName = row.cells[0].textContent.toLowerCase();
-        if (taskName.includes(searchText)) {
-          row.style.display = "table-row";
-        } else {
-          row.style.display = "none";
-        }
-      });
-    });
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
